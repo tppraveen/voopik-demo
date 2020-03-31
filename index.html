@@ -1,0 +1,140 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+<link href='https://fonts.googleapis.com/css?family=Josefin Sans' rel='stylesheet'>
+  <title>Frontend Mentor | Base Apparel coming soon page</title>
+  <style>
+    *{ box-sizing: border-box;}
+    body{font-size: 16px;font-family: 'Josefin Sans'}
+    .row{width: 100%;height:100%}
+    .col{float: left;padding: 10px;}
+    .col1{
+      width: 60%;height:100%;
+      background:linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%));
+      background-image: url('images/bg-pattern-desktop.svg');
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      padding-left:100px;}
+    .col2{
+      width: 40%;height:100%;
+      background-color:#bbb;
+      background-size: 100% 100%;}
+    .i-mob{
+      height: 200px;width: 100%;
+      padding-top: 5px;
+      display: none}
+    .box{
+      width: 100%;height:10%;
+      border: 2px solid hsl(0, 36%, 70%);
+      border-radius: 50px;}
+    input[type=email]{
+      width: 70%;border: none;padding: 10px;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-size: 12% 80%;
+      background-position: right; 
+      float:left;border-radius: 50px;}
+    .submit{
+      background-image:linear-gradient(to right, hsl(0, 80%, 90%), hsl(0, 74%, 74%));
+      width: 30%;height: 100%;
+      border-radius: 35px;
+      color: white;font-size: 35px;
+      box-shadow: -1px 8px 10px   hsl(0, 36%, 70%);
+      border:none }
+    
+    @media only screen and (min-width:1440px) {
+      .col1{padding-left: 150px;}
+      .i-mob{display: none;}
+      h1{line-height: 1.5cm;padding-top:65px;}
+      p{font-size:35px}
+      span{font-size:2vw;}
+    }
+    @media only screen and (min-width:800px) {
+      .col1{padding-left: 60px}
+      h1{padding-top:50px;}
+    }
+    @media only screen and (max-width: 375px) {
+      .col1{width: 100%;
+            padding-left: 0px}
+      .logo{padding: 10px}
+      h1,p{text-align: center;}
+      h1{line-height: .7cm;padding-top:30px;}
+      p{line-height: .6cm;font-size:5vw}
+      .col2{display: none;}
+      .i-mob{display: block;}
+    }
+  </style>
+</head>
+<body onmousedown="rc(event)">
+<div class="row" style="height:100%">
+  <div class="col col1">
+      <img class="logo" src="images/logo.svg">
+      <img class="i-mob" src="images/hero-mobile.jpg">
+      <h1 style="font-size:5vw;letter-spacing: 10px;font-weight: normal"> 
+        <span style="color: hsl(0, 36%, 70%);">WE'RE</span><br>
+        <span>COMING<br>SOON</span>
+      </h1>
+      <p style="color: hsl(0, 36%, 70%);line-height: 0.7cm;">
+      Hello fellow shoppers! We're currently building our new fashion store.    Add your email below to stay up-to-date with announcements and our launch deals.
+      </p>
+      <form name="Form" action="" onsubmit="return val()" method="post">
+      <div class="box">
+        <input type="email" id="mail" name="yy" placeholder="Email Address..">
+        <img src="images/icon-error.svg" style="display: none">  
+        <button type="submit" class="submit">></button> 
+      </div>
+      <p style="color: red;padding-left:15px;display: none" id="error">
+        Please provide a valid email
+      </p>
+    </form> 
+  </div>
+  <div class="col col2" style="background-image: url(images/hero-desktop.jpg);">    
+  </div>
+
+</div>
+<script type="text/javascript">
+    function val() {
+      var x = document.forms["Form"]["yy"].value;
+      if (x == "") {
+        document.getElementById("error").style.display="block";
+        document.getElementById("mail").style.backgroundImage = "url('images/icon-error.jpg')";
+        return false;
+      }
+       else{
+        document.getElementById("error").style.display="none";
+        alert("Coming Soon");
+      }
+    }
+    function rc(event) {
+      if(event.button==2)
+        alert("Right click disenabled");
+    }
+  </script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>
+    document.onkeydown = function(e) {
+            if (e.ctrlKey && 
+                (e.keyCode === 67 || 
+                 e.keyCode === 86 || 
+                 e.keyCode === 85 || 
+                 e.keyCode === 117)) {
+                return false;
+            } else {
+                return true;
+            }
+    };
+    $(document).keypress("u",function(e) {
+      if(e.ctrlKey)
+      {
+    return false;
+    }
+    else
+    {
+    return true;
+    }
+    });
+</script>
+</body>
+</html>
